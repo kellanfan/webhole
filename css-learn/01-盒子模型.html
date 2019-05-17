@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=20, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css盒子模型</title>
+    <style type="text/css">
+        .box1{
+            width: 200px;
+            height: 100px;
+            background-color: gold;
+            border-top: 10px solid seagreen;
+            border-left: 10px dashed aquamarine;
+            border-right: 10px dotted tan;
+            border-bottom: 10px solid coral;
+            margin: 10px auto;
+        }
+        .box2{
+            width: 200px;
+            height: 100px;
+            background-color: aqua;
+            border: 10px solid gold;
+            /*
+            四个值是上右下左
+            三个值是上 左右 下
+            二个值是 上下 左右
+            */
+            padding: 10px;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <br>
+    <div class="box2">盒子类型</div>
+</body>
+</html>
