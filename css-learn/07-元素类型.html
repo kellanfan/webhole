@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>元素类型</title>
+    <style type="text/css">
+        .box1,.box2,.box3{
+            background-color: goldenrod;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .box2{
+            width: 200px;
+        }
+        .box3{
+            width: 100px;
+        }
+        .con,.con2{
+            width: 300px;
+            height: 100px;
+            border: 1px solid gold;
+            margin: 50px auto 0;
+            font-size: 0;
+        }
+        .con a{
+            background-color: aquamarine;
+            /* margin-left: 30px;
+            margin-top: 30px; 不生效的 */
+            font-size: 10px;
+        }
+        .con2{
+            text-align: center;
+            line-height: 100px;
+        }
+        .con2 a{
+            font-size: 10px;
+            background-color: aqua;
+        }
+
+        .com{
+            width: 300px;
+            height: 100px;
+            border: 1px solid gold;
+            margin: 50px auto 0;
+        }
+        .com a{
+            background-color: gold;
+            width: 100px;
+            height: 50px;
+            display: inline-block; /*转换为内联块元素*/
+            padding: 10px;
+        }
+        .com span{
+            background-color: aquamarine;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <p>类型：块元素、内联元素、内联块元素</p>
+    <hr>
+    <p>块元素：div，p，ul，li，h，dl，dt，dd等</p>
+    <p>支持全部的样式，如果没有设置宽度，默认的宽度为父级宽度的100%，盒子占据一行即使设置了宽度</p>
+    <div class="box1">这是一个div块元素</div>
+    <div class="box2">这是二个div块元素</div>
+    <div class="box3">这是三个div块元素</div>
+    <hr>
+    <p>内联元素</p>
+    <p>也叫行内元素，a,span,b,em,strong等</p>
+    <p>在布局中的行为：1.支持部分样式，不支持宽高，margin上下，padding上下。2.宽高由内容决定。
+        3.盒子并在一行。4.代码换行，盒子之间会产生间距。5.子元素是内联元素的话，父元素可以用
+        text-align属性设置子元素水平对齐方式，用line-height属性设置垂直对齐方式。
+    </p>
+    <hr>
+    <div class="con">
+        <a href="#">这是一个a标签这是一个a标签</a>
+        <a href="#">这是二个a标签</a>
+    </div>
+    <p>解决内联元素间隙的方法：1.去掉换行2.将内联元素的父级设置font-size为0，内联元素自身再设置font-size</p>
+    <div class="con2">
+            <a href="#">这是一个a标签这是一个a标签</a>
+    </div>
+    <hr>
+    <p>内联块元素，可以通过display属性将块元素或者内联元素转化为这种元素</p>
+    <p>在布局中的行为：1.支持全部样式2.如果没有设置宽高，宽高由内容决定3.盒子并在一行
+        4.代码换行，盒子之间会产生间距。5.子元素是内联元素的话，父元素可以用
+        text-align属性设置子元素水平对齐方式，用line-height属性设置垂直对齐方式。
+    </p>
+    <div class="com">
+            <a href="#">这是一个a标签这是一个a标签</a>
+            <a href="#">这是二个a标签</a>
+            <span>这是一个span标签</span>
+        </div>
+</body>
+</html>
