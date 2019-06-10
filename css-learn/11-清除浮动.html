@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>清除浮动</title>
+    <style type="text/css">
+        .con,.con1{
+            width: 300px;
+            border: 1px solid black;
+            margin: 100px auto 0;
+            font-size: 0;          
+        }
+        .con a{
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            background-color: aqua;
+            font-size: 16px;
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+        }
+
+        .con1 a{
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            font-size: 16px;
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+            float: left;
+        }
+        .clearfix:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .con2{
+            width: 300px;
+            border: 1px solid black;
+            margin: 100px auto 0;      
+        }
+        .con2 span{
+            background-color: cyan;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <p>清除浮动方法：
+        1、父级增加overflow: hidden;
+        2、clearfix方法,用样式将最底部加了个字符串。下面这几行，可以清除浮动和清除margin-top塌陷
+        .clearfix:after,.clearfix:before{ content: "";display: table;}
+.clearfix:after{ clear:both;}
+.clearfix{zoom:1;}
+    </p>
+    <div class="con">
+        <a href="">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+        <a href="">6</a>
+        <a href="">7</a>
+        <a href="">8</a>
+    </div>
+    <hr>
+    <div class="con1 clearfix">
+        <a href="">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+        <a href="">6</a>
+        <a href="">7</a>
+        <a href="">8</a>
+    </div>
+
+    <div class="con2 clearfix">
+        <span>span元素</span>
+        <span>span元素</span>
+        <span>span元素</span>
+        <span>span元素</span>
+        <span>span元素</span>
+    </div>
+</body>
+</html>
