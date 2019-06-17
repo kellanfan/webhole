@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3选择器</title>
+    <style type="text/css">
+        li:nth-last-child(1){
+            background-color: aqua; /*倒数*/
+        }
+        .box p:only-child{
+            background-color: green;  /*只有一个子元素，且类型为p*/
+        }
+        .box div:only-of-type{
+            background-color: cornflowerblue; /*只要子元素中只有一个div标签即可，不管是否有其他类型的标签*/
+        }
+        div:empty{
+            background-color: red;
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    <div class="box">
+        <p>第一个p标签</p>
+        <p>第二个p标签</p>
+        <div>div标签</div>
+        <div></div>
+    </div>
+</body>
+</html>

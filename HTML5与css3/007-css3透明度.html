@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css透明度</title>
+    <style type="text/css">
+        body{
+            background-color: aqua;
+        }
+        .box{
+            height: 200px;
+            width: 200px;
+            background: url(bg.jpg);
+            margin: 50px auto 0;
+            border-radius: 50%;
+            opacity: 0.3; /*透明度*/
+            filter: alpha(opacity=50); /*透明度 兼容IE*/
+            text-align: center;
+            line-height: 200px;
+        }
+        .box1{
+            height: 200px;
+            width: 200px;
+            background-color: rgba(255,215,0,0.3); /*rgba颜色表示法*/
+            margin: 50px auto 0;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">一览众山小</div>  
+    <p>内容也透明</p>
+    <hr>
+    <div class="box1">一览众山小</div>
+    <p>内容不会透明</p>
+</body>
+</html>

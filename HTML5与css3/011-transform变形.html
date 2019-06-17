@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transform变形</title>
+    <style type="text/css">
+        .box,.box2,.box3,.box4{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            margin: 50px auto 0;
+            transition: all 1s ease;
+        }
+        .box:hover{
+            transform: translate(50px,50px); /*位移*/
+        }
+        .box2:hover{
+            transform: rotate(30deg); /*旋转30度*/
+        }
+        .box3:hover{
+            transform: scale(0.5,0.2);
+        }
+        .box4:hover{
+            transform: skew(45deg,0);
+        }
+    </style>
+</head>
+<body>
+    <p>位移</p>
+    <div class="box"></div>
+    <hr>
+    <p>旋转</p>
+    <div class="box2"></div>
+    <hr>
+    <p>缩放</p>
+    <div class="box3"></div>
+    <hr>
+    <p>斜切</p>
+    <div class="box4"></div>
+</body>
+</html>

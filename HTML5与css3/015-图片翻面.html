@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片翻面</title>
+    <style type="text/css">
+        .con{
+            width: 300px;
+            height: 200px;
+            position: relative;
+            margin: 50px auto 0;
+        }
+        .pic img{
+            width: 300px;
+            height: 200px;
+        }
+        .pic,.info{
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            transition: all 1s ease;
+        }
+        .pic{
+            transform: perspective(800px) rotateY(0deg);
+        }
+        .info{
+            line-height: 200px;
+            text-align: center;
+            background-color: gold;
+            transform: perspective(800px) rotateY(180deg);
+        }
+        .con:hover .pic{
+            transform: perspective(800px) rotateY(180deg);
+        }
+        .con:hover .info{
+            transform: perspective(800px) rotateY(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="pic"><img src="bg.jpg" alt="tupian"></div>
+        <div class="info">图片的文字说明</div>
+    </div>
+</body>
+</html>

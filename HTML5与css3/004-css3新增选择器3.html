@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3选择器3</title>
+    <style type="text/css">
+        input:disabled{
+            background-color: red; /*如果输入框是禁止输入的*/
+        }
+        input:enabled{
+            background-color: aqua;
+        }
+        input:checked + label{
+            color: blue; /*选中的话后面紧跟着的标签会变色*/
+        }
+        .box{
+            color: green;
+            height: 20px;
+            width: 20px;
+            display: none; /*默认不显示*/
+        }
+        input:checked + div{
+            display: block; /*如果选中的话，显示div*/
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="" disabled>
+    <input type="text" name="">
+    <hr>
+    <input type="checkbox" name="" id=""><label for="">check标签</label>
+    <hr>
+    <input type="checkbox" name="" id=""><div class="box">这是一个div标签</div>
+</body>
+</html>
