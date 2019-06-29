@@ -1,0 +1,8 @@
+.box{
+    width: 100px;
+    height: 100px;
+    -webkit-transform: translate(0.5,0.5);
+            transform: translate(0.5,0.5)
+}
+
+/*autoprefixer是一个插件，来帮助你添加css文件中对于各种浏览器的兼容，按F1，输入 autoprefixer即可*/
