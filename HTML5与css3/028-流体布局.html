@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>流体布局</title>
+    <style type="text/css">
+        body,ul{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .menu1,.menu2,.menu3{
+            height: 50px;
+        }
+        ul li{
+            background-color: gold;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            float: left;
+        }
+        .menu1 li{
+            width: 25%;
+        }
+        .menu2 li{
+            border: 2px solid black;
+            width: calc(25% - 4px); /* 因为多出border，所以宽度上一共多出4px，为了不使流体布局出问题，需要通过calc计算，
+            将多出的4px减去*。这是第一种方法*/
+        }
+        .menu3 li{
+            border: 2px solid black;
+            box-sizing: border-box; /*这是第二种方法，置盒子的尺寸计算方式从边框开始，也就是把边框的宽度计算在内了*/
+        }
+    </style>
+</head>
+<body>
+    <p>流体布局就是使用百分比来设置元素宽度。这样不管界面或者设备屏幕大小都可以正常显示</p>
+    <hr>
+    <ul class="menu1">
+        <li><a href="">文字而已</a></li>
+        <li><a href="">文字而已</a></li>
+        <li><a href="">文字而已</a></li>
+        <li><a href="">文字而已</a></li>
+    </ul>
+    <hr>
+    <ul class="menu2">
+        <li><a href="">文字而已</a></li>
+        <li><a href="">文字而已</a></li>
+        <li><a href="">文字而已</a></li>
+        <li><a href="">文字而已</a></li>
+    </ul>
+    <hr>
+    <ul class="menu3">
+        <li><a href="">文字而已</a></li>
+        <li><a href="">文字而已</a></li>
+        <li><a href="">文字而已</a></li>
+        <li><a href="">文字而已</a></li>
+    </ul>
+</body>
+</html>

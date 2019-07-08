@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>响应式布局</title>
+    <style type="text/css">
+        body ul{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .con{
+            border: 1px solid black;
+            overflow: hidden;
+        }
+        .con li{
+            background-color: gold;
+            height: 100px;
+            width: 23%;
+            margin: 30px 1%;
+            float: left;
+        }
+        @media (max-width:800px){ /*将浏览器的宽度减小到800px的时候，下面的参数会覆盖上面的参数，下面一样，典型网页 
+        www.bootcss.com*/
+            .con li{
+                width: 46%;
+                margin: 30px 2%;
+            }
+        }
+        @media (max-width:500px){
+            .con li{
+                width: 90%;
+                margin: 30px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul class="con">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+</html>
