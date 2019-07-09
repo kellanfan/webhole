@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 20px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基于rem的布局</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+        }
+        .header{
+            height: 2.5rem; /*是以html的style的font-size为基准，这样页面所有的设置都会相应的变化。
+            可以通过js来改变style="font-size“的值*/
+            background-color: gold;
+            text-align: center;
+            line-height: 2.5rem;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <p>rem指的是参照根节点的文字大小，根节点指的是html标签，设置html标签的文字大小，
+        其他的元素相关尺寸设置用rem，这样，所有元素都有了统一的参照标准，
+        改变html文字的大小，就会改变所有元素用rem设置的尺寸大小。</p>
+    <hr>
+    <div class="header">header</div>
+</body>
+</html>

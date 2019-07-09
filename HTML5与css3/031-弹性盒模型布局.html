@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹性盒模式布局</title>
+    <style type="text/css">
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 500px;
+            border: 5px solid black;
+            background-color: gold;
+            margin: 50px auto 0;
+            height: 400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+        }
+        ul li{
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            margin: 10px;
+        }
+        ul li:nth-child(2){
+            align-self: flex-end;
+        }
+        ul li:nth-child(3){
+            order: 4;
+        }
+        ul li:nth-child(4){
+            order: 3;
+        }
+        /* 1、容器属性
+            display : flex
+            声明使用弹性盒布局
+            
+            flex-direction : row | row-reverse | column | column-reverse
+            确定子元素排列的方向  默认子元素靠左水平排列 | 靠右反序水平排列 | 竖着排 | 反序竖着排
+            
+            flex-wrap : nowrap | wrap | wrap-reverse
+            元素超过父容器尺寸时是否换行 默认不换行| 换行 | 反向换行
+            
+            flex-flow : flex-direction | flex-wrap
+            同时设置flex-direction 和 flex-wrap
+            
+            justify-content : flex-start | flex-end | center | space-between | space-around
+            子元素的尺寸确定之后，用此属性来设置flex-direction定义方向上的分布方式
+            整体子元素靠左 | 整体子元素靠右 | 居中 | 第一个子元素靠左顶格，最后一个子元素靠右顶格，中间的元素等分间距 |
+            第一个子元素靠左的间距和最后一个子元素靠右的间距是中间子元素间距的一半，中间元素等分间距
+
+            align-items : flex-start | flex-end | center | baseline | stretch
+            子元素的尺寸确定之后，用此属性来设置flex-direction定义方向上的垂直方向的分布方式
+            整体垂直靠上排 | 整体垂直靠下排 | 整体居中 | 子元素内的文字底部对齐，如果文字的大小不同，会导致子元素水平无法对齐 |
+            如果子元素不设置高度，高度将会被拉伸至父元素高度（出去自身的margin）
+
+            align-content : flex-start | flex-end | center | space-between | space-around | stretch
+            设置多行子元素在行方向上的对齐方式
+            多行整体靠上排列 | 多行整体靠下排列 | 多行整体垂直居中排列 | 第一行子元素靠上顶格，最后一行子元素靠下顶格，中间行元素等分间距 |
+            第一行元素靠上的间距和最后一行子元素靠下的间距是中间行元素等分垂直的间距的一半。
+            2、条目属性
+            flex : none | <' flex-grow '> <' flex-shrink >'? || <' flex-basis '>
+            同时设置flex-grow 和 flex-shrink 以及 flex-basis
+            
+            flex-grow ： number
+            表示的是当父元素有多余的空间时，这些空间在不同子元素之间的分配比例
+            
+            flex-shrink： number
+            当父元素的空间不足时，各个子元素的尺寸缩小的比例
+            
+            flex-basis ：length | percentage | auto | content
+            用来确定弹性条目的初始主轴尺寸。以后面设定的值为基准增长或缩短
+            
+            align-self ：auto | flex-start | flex-end | center | baseline | stretch
+            覆写父元素指定的对齐方式，单独设置的话，和align-items不同的对齐方式。
+            
+            order : integer
+            改变条目在容器中的出现顺序 
+    */
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>
