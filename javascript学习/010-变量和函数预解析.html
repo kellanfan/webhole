@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>变量和函数预解析</title>
+    <script>
+        alert(a); // 弹出undefined
+        // alert(c); c is not defined  这是变量和值都没有定义，这是报错
+        var a = 123;
+
+        // 弹出hello
+        myalert();
+        // 函数可以预解析
+        function myalert(){
+            alert('hello');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

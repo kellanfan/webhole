@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/1.css" id="link1">
+    <title>换肤</title>
+    <script type="text/javascript">
+          
+        window.onload = function(){
+            // 提取行间事件
+            var oinp1 = document.getElementById('inp1');
+            var oinp2 = document.getElementById('inp2');
+            oinp1.onclick = skin1; // 这里不能写括号，加括号就直接执行了
+            oinp2.onclick = skin2;
+        }
+        function skin1(){
+            var oLink = document.getElementById('link1');
+            oLink.href = "css/1.css";
+        }
+        function skin2(){
+            var oLink = document.getElementById('link1');
+            oLink.href = "css/2.css";
+        }
+    </script>
+</head>
+<body>
+    <!-- 
+        行间执行函数
+        <input type="button" value="皮肤1" onclick="skin1()"> 
+    <input type="button" value="皮肤2" onclick="skin2()">
+     -->
+    <input type="button" value="皮肤1" id="inp1"> 
+    <input type="button" value="皮肤2" id="inp2">
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

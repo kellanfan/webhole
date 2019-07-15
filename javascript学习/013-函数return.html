@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var oInp1 = document.getElementById('input01');
+            var oInp2 = document.getElementById('input02');
+            var oAdd = document.getElementById('result');
+
+            oAdd.onclick = function(){
+                var val01 = oInp1.value;
+                var val02 = oInp2.value;
+                var d = add(val01,val02);
+                alert(d);
+            }
+            
+            /* 
+            函数中'return'关键字的作用：
+            1、返回函数执行的结果
+            2、结束函数的运行
+            3、阻止默认行为
+            */
+            function add(a,b){
+                var c = parseInt(a) + parseInt(b);
+                return c;
+            }
+            
+        
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="input01">
+    <input type="text" name="" id="input02">
+    <input type="button" value="相加" id="result">
+</body>
+</html>

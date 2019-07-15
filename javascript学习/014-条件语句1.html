@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>条件语句1</title>
+    <style>
+        .box{
+          width: 200px;
+          height: 200px;
+          background-color: gold;  
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById('btn');
+            var oBox = document.getElementById('box');
+            oBtn.onclick = function(){
+                if(oBox.style.display == 'none') // 去行间的标签中去找属性
+                {
+                    oBox.style.display = 'block';
+                }
+                else
+                {
+                    oBox.style.display = 'none';
+                } 
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="切换" id="btn">
+    <div class="box" id="box"></div>
+</body>
+</html>
