@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重</title>
+    <script>
+        var aRr = [1,2,3,3,2,1,5,6,8,9,0,4,2,4,6,5,6];
+        var aList = [];
+        for(var i=0;i<aRr.length;i++){
+            if(aRr.indexOf(aRr[i]) == i){ //通过索引固定值，因为indexOf只显示元素的第一个索引值。
+                aList.push(aRr[i]);
+            }
+        }
+        alert(aList);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
