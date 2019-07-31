@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var name = 'Tom';
+        var age = 18;
+        //alert('我的名字是' + name+',' + '我的年龄是'+ age + '岁')
+        var a = 10;
+        var b = '32';
+        //alert(a+b) 输出1032 如果是字符串，+号会将其相连
+        var c = 5.6;
+        //alert(parseInt(c)); 输出5，只取整数
+        var d = '123asd';
+        //alert(parseInt(d)); 只输出123，去掉后面的字母
+        var e = 4.2;
+        //alert(parseFloat(c)+parseFloat(e));
+        var f = 0.1;
+        var g = 0.2;
+        // alert((parseFloat(f)*100+parseFloat(g)*100)/100); //有时候会计算浮点数会计算错误，
+                                                         // 所以要用这个方法避免错误
+        var sTr = '2019-07-30';
+        var aRr = sTr.split('-');
+        //alert(aRr); 也可以使用console.log调试。在开发者模式的console中看到。
+        console.log(aRr);
+        document.title = aRr;  //也可以使用这个方法调试。
+        // 这就是3种调试方法。alert、console.log、document.title
+        var aTr2 = '#aa';
+        var sTr2 = aTr2.charAt(0);
+        //if(sTr2 == '#'){
+           // alert('id选择器');
+        //}
+        var sTr3 = 'Microsoft Yahei';
+        var num = sTr3.indexOf('Yahei');
+        var num1 = sTr3.indexOf('aaaa');
+        // alert(num1) // -1,存在的话会显示对应字符的索引
+
+        var sTr4 = sTr3.substring(10,15);
+        alert(sTr4)
+        alert(sTr4.toUpperCase())
+    </script>
+</head>
+<body>
+    <p>
+        1、字符串合并操作：“ + ”
+2、parseInt() 将数字字符串转化为整数
+3、parseFloat() 将数字字符串转化为小数
+4、split() 把一个字符串分隔成字符串组成的数组
+5、charAt() 获取字符串中的某一个字符
+6、indexOf() 查找字符串是否含有某字符
+7、substring() 截取字符串 用法： substring(start,end)（不包括end）
+8、toUpperCase() 字符串转大写
+9、toLowerCase() 字符串转小写
+    </p>
+</body>
+</html>
