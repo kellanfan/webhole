@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NaN和isNaN</title>
+    <script>
+        var a = '123asd';
+        var b = '5.3asd';
+        var c = 'asd123';
+        var d = 'asd5.3';
+        var e = parseInt(a);
+        var f = parseFloat(b);
+        var g = parseInt(c);
+        var h = parseFloat(d);
+        var i = 123;
+        var j = '123';
+        //alert(e); 弹出123
+        //alert(f); 弹出5.3
+        //alert(g); 弹出NaN not a number 
+        // parseInt和 parseFloat在判断是否是数字的时候有问题，如上
+
+        // 下面都弹出false
+        //alert(g==NaN);
+        //alert(NaN==NaN);
+
+        alert(isNaN(a)); //弹出true,意思是 a 是 不是一个数字
+        alert(isNaN(i)); //false
+        alert(isNaN(j)); // false
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

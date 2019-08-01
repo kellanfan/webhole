@@ -7,27 +7,39 @@
     <title>计算器</title>
     <script>
         window.onload = function(){
-            var rEsult = document.getElementById('result');
-            rEsult.onclick = function(){
-                var aTr1 = document.getElementById('num1').value;
-                var aTr2 = document.getElementById('num2').value;
-                var mEth = document.getElementById('method').value;    
+            var oInput1 = document.getElementById('num1');
+            var oInput2 = document.getElementById('num2');
+            var oMethod = document.getElementById('method');
+            var oResult = document.getElementById('result');
+            oResult.onclick = function(){
+                var aTr1 = oInput1.value;
+                var aTr2 = oInput2.value;
+                var mEth = oMethod.value;    
+                
+                if(aTr1==''|| aTr2==''){
+                    alert('输入框不能为空');
+                    return;
+                }
+                if(isNaN(aTr1) || isNaN(aTr2)){
+                    alert('请输入数字！');
+                    return;
+                }
                 var sTr3 = jisuan(aTr1,aTr2,mEth);
                 alert(sTr3);
             }
             function jisuan(a,b,method){
                 switch (method){
                     case '+':
-                        var c = (parseInt(a)*100 + parseInt(b)*100)/100;
+                        var c = (parseFloat(a)*100 + parseFloat(b)*100)/100;
                         return c;
                     case '-':
-                        var c = parseInt(a) - parseInt(b);
+                        var c = (parseFloat(a)*100 - parseFloat(b)*100)/100;
                         return c;
                     case '*':
-                        var c = parseInt(a) * parseInt(b);
+                        var c = ((parseFloat(a)*100) * (parseFloat(b)*100))/10000;
                         return c;
                     case '/':
-                        var c = parseInt(a) / parseInt(b);
+                        var c = (parseFloat(a)*100) / (parseFloat(b)*100);
                         return c;
                 }
             }
@@ -35,6 +47,7 @@
     </script>
 </head>
 <body>
+    <h1>计算器</h1>
     <input type="text" id="num1">
     <select name="" id="method">
         <option>+</option>
