@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定时器</title>
+    <style>
+        .pop_con{
+            display: none;
+        }
+        .pop{
+            width: 400px;
+            height: 300px;
+            background-color: white;
+            border: 1px solid black;
+            position: fixed;
+            left: 50%;
+            top:50%;
+            margin-left: -200px;
+            margin-top: -150px;
+            z-index: 9999;  
+        }
+        .mask{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            left: 0;
+            top: 0;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+            z-index: 9990; 
+        }
+        .close{
+            position: relative;
+            left: 274px;
+            top: 0;
+        }
+        .pop h3{
+            display: inline;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oRr = document.getElementById('pop');
+            var oRr1 = document.getElementById('close');
+            oRr1.onclick = function(){oRr.style.display = 'none'}
+            setTimeout(function(){
+                oRr.style.display = 'block';
+            },3000)
+            /*setTimeout(show_pop,3000);
+            function show_pop(){
+                oRr.style.display = 'block';
+            } */
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>首页</h1>
+    <p>页面内容</p>
+    <div class="pop_con" id="pop">
+        <div class="pop">
+            <h3>提示信息</h3>
+            <input type="button" value="关闭" class="close" id="close">
+        </div>
+        <div class="mask"></div>
+    </div>
+</body>
+</html>

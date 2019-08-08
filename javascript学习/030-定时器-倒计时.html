@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>倒计时</title>
+    <script>
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            function timeleft() {
+                // 实际开发中now这个时间要从服务器端获取，否则客户端修改了时间会出现问题
+                var now = new Date();
+                var future = new Date(2019,7,10,24,0,0); // 注意月份是0-11，因此要减1
+                var left = parseInt((future-now)/1000);
+                var day = parseInt(left/86400);
+                var hour = parseInt((left%86400)/3600);
+                var min = parseInt(((left%86400)%3600)/60);
+                var sec = left%60;
+                if(left<=0){
+                    window.location.href = 'https://www.baidu.com';
+                }
+                oBox.innerHTML = '距离结束时间还有：' + day + '天' + todoub(hour) + '时'
+                                 + todoub(min) + '分' + todoub(sec) + '秒'
+            }
+            timeleft();
+            setInterval(timeleft,1000);
+        }
+
+        function todoub(num){
+            if(num<10){
+                return '0'+num;
+            }
+            else{
+                return num;
+            }          
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id="box"></div>
+</body>
+</html>

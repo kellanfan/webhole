@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时钟</title>
+    <script>
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            function timego(){
+                var now = new Date();
+                var year = now.getFullYear();
+                var month = now.getMonth() + 1;
+                var day = now.getDay();
+                var date = now.getDate();
+                var hour = now.getHours();
+                var min = now.getMinutes();
+                var sec = now.getSeconds();
+            
+                oBox.innerHTML = '现在时间是：'+ year + '年' + todoub(month) + '月' + todoub(date)
+                            + '日' + ' ' + '星期' + toch(day) + ' ' + 
+                            todoub(hour) + ':' + todoub(min) + ':' + todoub(sec)
+            }
+            timego() // 解决刷新页面等1s才有内容
+            setInterval(timego,1000);
+        }
+
+        function todoub(num){
+            if(num<10){
+                return '0'+num;
+            }
+            else{
+                return num;
+            }          
+        }
+        function toch(num){
+            switch(num){
+                case 1:
+                    return '一';
+                case 2:
+                    return '二';
+                case 3:
+                    return '三';
+                case 4:
+                    return '四';
+                case 5:
+                    return '五';
+                case 6:
+                    return '六';
+                case 0:
+                    return '日';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id="box"></div>
+</body>
+</html>
