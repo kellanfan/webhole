@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>变量作用域</title>
+    <script>
+        // 全局变量  函数外部定义的变量，函数内部和外部都可以访问。值可以共享
+        // 局部变量  函数内部定义的变量，只能函数内部可以访问，外部无法访问。
+        //          函数访问变量时，先内部查找，没有再去外部查找。
+        // 函数内部如果不用var关键字定义变量，变量可能会变成全局变量，建议使用var
+        var a = 12;
+        function aa(){
+            var b = 5;
+            var c = 7;
+            d = 33;
+            alert(c);
+        }
+        aa();
+       // alert(c);
+        alert(d);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

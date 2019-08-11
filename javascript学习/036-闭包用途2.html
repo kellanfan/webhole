@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包用途2</title>
+    <script>
+        // 私有变量计数器，外部无法访问，避免全局变量的污染
+        var count = (function(){
+            var a = 0;
+            function bb(){
+                a++;
+                return a;
+            }
+            return bb;
+        })();
+        alert(count());
+        alert(count());
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

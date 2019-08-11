@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取地址栏参数</title>
+    <script>
+        window.onload = function(){
+            var odat = window.location.search;
+            var ohash = window.location.hash; // 这个是地址栏后面的#12等信息
+            var ospan = document.getElementById('span1');
+            var name = odat.split('=')[1];
+            ospan.innerHTML = name;
+            alert(ohash);
+        }
+        // 在地址栏添加?name=xxxx#12
+    </script>
+</head>
+<body>
+    <div>欢迎<span id="span1"></span>访问我的网站</div>
+</body>
+</html>
