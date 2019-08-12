@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function Person(name,age,job){
+            this.name = name;
+            this.age = age;
+            this.job = job;
+        }
+
+        Person.prototype.showjob = function(){
+            alert(this.job);
+        }
+        var tom = new Person('tom',18,'python');
+        var jack = new Person('jack',19,'java');
+        alert(tom.showjob == jack.showjob);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

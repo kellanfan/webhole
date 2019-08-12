@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function Person(name,age,job){
+            this.name = name;
+            this.age = age;
+            this.job = job;
+
+            this.showjob = function(){
+                alert(job);
+            }
+        }
+
+        var tom =  new Person('tom',18,'worker');
+        var jack = new Person('jack',12,'student');
+        alert(tom.showjob == jack.showjob); // 不是一个方法，说明没有重用，那么就是在浪费资源。
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

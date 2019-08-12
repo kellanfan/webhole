@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包做选项卡</title>
+    <style>
+        .con{
+            width: 500px;
+            height: 50px;
+        }
+        .con input{
+            width: 100px;
+            height: 50px;
+            background-color: #666;
+            border: 0px;
+        }
+        .con input.cur{
+            background-color: aqua;
+        }
+        .content{
+            width: 400px;
+            height: 200px;
+        }
+        .content div{
+            width: 400px;
+            height: 200px;
+            background-color: aqua;
+            line-height: 200px;
+            text-align: center;
+            display: none;
+        }
+        .content div.active{
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById('con').getElementsByTagName('input');
+            var oCon = document.getElementById('content').getElementsByTagName('div');
+            for(var i=0;i<oBtn.length;i++){
+                (function(i){
+                    oBtn[i].onclick = function(){
+                    for(var j=0;j<oBtn.length;j++){
+                        oBtn[j].className = '';
+                        oCon[j].className = '';
+                    }
+                    this.className = 'cur';
+                    oCon[i].className = 'active';
+                }
+                })(i);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="con" id="con">
+        <input type="button" value="tab1" class="cur">
+        <input type="button" value="tab2">
+        <input type="button" value="tab3">
+    </div>
+    <div class="content" id="content">
+        <div class="active">tab文字内容一</div>
+        <div>tab文字内容二</div>
+        <div>tab文字内容三</div>
+    </div>
+</body>
+</html>

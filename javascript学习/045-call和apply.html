@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>call和apply</title>
+    <script>
+        // 作用一样，改变当前执行的this。参数用法不一样
+        function aa(a,b){
+            alert('我的this是' + this + '，我的a是' + a + '，我的b是' + b);
+        }
+        aa(2,3);
+        aa.call('aa',2,3);
+        aa.apply('bb',[2,3]);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
