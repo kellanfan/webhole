@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>特殊效果</title>
+    <style>
+        .box{
+            height: 200px;
+            width: 200px;
+            background-color: gold;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        fadeOut() 淡出
+        fadeToggle() 切换淡入淡出
+        hide() 隐藏元素
+        show() 显示元素
+        toggle() 依次展示或隐藏某个元素
+        slideDown() 向下展开
+        slideUp() 向上卷起
+        slideToggle() 依次展开或卷起某个元素
+        */
+        $(function(){
+            $('#btn').click(
+                function(){
+                    // $('.box').fadeToggle();
+                    // $('.box').toggle();
+                    $('.box').slideToggle();
+                }
+            );
+
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="效果" id="btn">
+    <div class="box"></div>
+</body>
+</html>
