@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+            margin-bottom: 10px;
+        }
+        .pos{
+            margin-left: 500px;
+        }
+        .pop{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            var pos = $('div').eq(2).offset();
+            var w = $('div').outerWidth();
+            var h = $('div').outerHeight();
+            $('.pop').css({left:pos.left+w,top:pos.top});
+            $('div').mouseover(function(){
+                $('.pop').show();
+            })
+            $('div').mouseout(function(){
+                $('.pop').hide();
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box pos"></div>
+    <div class="box"></div>
+    <div class="pop">提示信息</div>
+</body>
+</html>
