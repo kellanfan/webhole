@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>todolist</title>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        .text{
+            width: 445px;
+        }
+        .con{
+            margin: 50px auto 0;
+            width: 500px;
+        }
+        .list{
+            list-style: none;
+            margin-top: 20px;
+        }
+        .list li{
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #999;
+        }
+        .list span{
+            float: left;
+        }
+        .list li a{
+            float: right;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            $('#btn').click(function(){
+                var txt = $('#text').val();
+                $('#text').val('');
+                if(txt=='')
+                {
+                    alert('请输入内容！');
+                    return;
+                }
+                $li = $('<li><span>' + txt + 
+                        '</span><a href="javascript:;" class="up">&#8593</a>' +
+                        '<a href="javascript:;" class="down">&#8595</a>' +
+                        '<a href="javascript:;" class="del">删除</a>' +
+                        '</li>');
+                $('.list').append($li);
+            });
+            $('.list').delegate('a', 'click', function(){
+                var handler = $(this).attr('class');
+                if(handler=='del'){
+                    $(this).parent().remove();
+                };
+                if(handler=='up'){
+                    if($(this).parent().prev().length==0){
+                        alert('到定了');
+                        return;
+                    };
+                    // 这块比较难理解，insertBefore括号里面的是现存元素，
+                    // 也就是说在这个li之前的li的前面插入这个li。下同
+                    $(this).parent().insertBefore($(this).parent().prev()); 
+                };
+                if(handler=='down'){
+                    if($(this).parent().next().length==0){
+                        alert('到底了');
+                        return;
+                    };
+                    $(this).parent().insertAfter($(this).parent().next());
+                };
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="con" id="con">
+        <p>To do list<p>
+        <input type="text" name="" id="text" class="text">
+        <input type="submit" id="btn" value="增加">
+        <ul class="list">
+            <li>
+                <span>学习python</span>
+                <a href="javascript:;" class="up">&#8593</a>
+                <a href="javascript:;" class="down">&#8595</a>
+                <a href="javascript:;" class="del">删除</a>
+            </li>
+            <li>
+                <span>学习JavaScriptn</span>
+                <a href="javascript:;" class="up">&#8593</a>
+                <a href="javascript:;" class="down">&#8595</a>
+                <a href="javascript:;" class="del">删除</a>
+            </li>
+            <li>
+                <span>学习jQuery</span>
+                <a href="javascript:;" class="up">&#8593</a>
+                <a href="javascript:;" class="down">&#8595</a>
+                <a href="javascript:;" class="del">删除</a>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+</html>

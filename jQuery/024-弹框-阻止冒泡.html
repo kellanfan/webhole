@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定时器</title>
+    <style>
+        .pop_con{
+            display: none;
+        }
+        .pop{
+            width: 400px;
+            height: 300px;
+            background-color: white;
+            border: 1px solid black;
+            position: fixed;
+            left: 50%;
+            top:50%;
+            margin-left: -200px;
+            margin-top: -150px;
+            z-index: 9999;  
+        }
+        .mask{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            left: 0;
+            top: 0;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+            z-index: 9990; 
+        }
+        .close{
+            position: relative;
+            left: 274px;
+            top: 0;
+        }
+        .pop h3{
+            display: inline;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            $('#btn').click(function(){
+                $('#pop').show();
+                return false;
+            });
+            $('#close').click(function(){
+                $('#pop').hide();
+            })
+            // 这里是想点击页面其他地方是也可以关闭弹窗，但是由于冒泡，上面的click事件
+            // 上传至document触发了click事件，导致弹窗直接关闭了，因此要关闭冒泡   
+            $(document).click(function(){
+                    $('#pop').hide();
+            });
+            // 如果不加这块，点击弹框也会关闭，有些时候不希望这样
+            $('.pop').click(function(){
+                return false;
+            })
+        });
+    </script>
+</head>
+<body>
+    <h1>首页</h1>
+    <p>页面内容</p>
+    <input type="button" value="弹出" id="btn">
+    <div class="pop_con" id="pop">
+        <div class="pop">
+            <h3>提示信息</h3>
+            <input type="button" value="关闭" class="close" id="close">
+            <input type="text" name="" id="">
+        </div>
+        <div class="mask"></div>
+    </div>
+</body>
+</html>

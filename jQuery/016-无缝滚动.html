@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>无缝滚动</title>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        .btns{
+            width: 500px;
+            height: 50px;
+            margin: 10px auto 0;
+        }
+        .con{
+            width: 500px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px auto 0; 
+            position: relative;
+            overflow: hidden;
+        }
+        .con ul{
+            width: 1000px;
+            height: 100px;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        .con ul li{
+            width: 90px;
+            height: 90px;
+            margin: 5px;
+            line-height: 90px;
+            text-align: center;
+            font-size: 30px;
+            list-style: none;
+            float: left;
+            background-color: darkslategray;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            var $ul = $('#con ul');
+            var leftnum = 0;
+            var direction = 2; // 定义一个方向变量
+            $ul.html($ul.html()+$ul.html()) // 复制一份ul，使得有2份连续的ul
+            var timer = setInterval(move,30);
+            function move(){
+                leftnum-=direction;
+                //当向左移动超过了第二个ul时，马上将left设为0，即将ul拉回到起始位置。
+                if(leftnum<-500){  
+                    leftnum = 0;
+                }
+                if(leftnum>0){
+                    leftnum = -500;
+                }
+                $ul.css({left:leftnum});
+            }
+            $('#btn1').click(function(){
+                direction = 2;  // 向左移动
+            });
+            $('#btn2').click(function(){
+                direction = -2; //向右移动
+            });
+            $ul.mouseover(function(){
+                clearInterval(timer); // 鼠标放上去是清除定时器
+            });
+            $ul.mouseout(function(){
+                timer = setInterval(move,30); // 鼠标离开时，重新设定定时器
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="btns">
+        <input type="button" value="向左" id="btn1">
+        <input type="button" value="向右" id="btn2">
+    </div>
+    <div class="con" id="con">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</body>
+</html>

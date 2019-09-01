@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标移入移出</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            margin: 100px auto 0;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: green;        }
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+         /* $(function(){
+           这块有个问题，当你快速晃动鼠标使鼠标多次进出，会发现当你鼠标不动后，
+                他还会上下移动多次。这是因为每次进入都会进到jQuery的对列中并完成，
+                但是这个看起来不好。所以需要加个stop(),目的是停止之前的动作，再开始
+                新的动作
+           
+            $('.box').mouseover(function(){
+                $(this).stop().animate({marginTop:50});
+            });
+            $('.box').mouseout(function(){
+                $(this).stop().animate({marginTop:100});
+            });
+        });
+
+        mouseover() 鼠标进入（进入子元素也触发）
+        mouseout() 鼠标离开（离开子元素也触发）
+        mouseenter() 鼠标进入（进入子元素不触发）
+        mouseleave() 鼠标离开（离开子元素不触发）
+         */
+        
+        $(function(){
+            // 当有子元素时，为了不让其进入子元素触发，所以要用enter和leave
+            // $('.box').mouseenter(function(){
+            //     $(this).stop().animate({marginTop:50});
+            // });
+            // $('.box').mouseleave(function(){
+            //     $(this).stop().animate({marginTop:100});
+            // });
+
+            // hover写法
+            $('.box').hover(function(){
+                $(this).stop().animate({marginTop:50});
+            },function(){
+                $(this).stop().animate({marginTop:100});
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+    </div>
+    
+</body>
+</html>

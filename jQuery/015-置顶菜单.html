@@ -71,6 +71,17 @@
                     });
                     $('.menu_pos').hide();
                 }
+
+                if(nowTop>400){
+                    $('.totop').fadeIn();
+                }
+                else{
+                    $('.totop').fadeOut();
+                }
+            });
+
+            $('.totop').click(function(){
+                $('html,body').animate({scrollTop:0});
             });
         });
     </script>

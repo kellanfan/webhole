@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery其他事件</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        window.onload = function(){
+
+        }
+        */
+        // jquery中写成
+        // $(window).load(function(){});
+        // 窗口改变尺寸的时候触发
+        $(window).resize(function(){
+            console.log('2');
+        });
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>
