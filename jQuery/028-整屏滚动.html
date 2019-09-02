@@ -10,19 +10,26 @@
     <script src="js/jquery.mousewheel.js"></script>
     <script>
         $(function(){
-            var $h = $(window).height();
-            var len = $('.pages').length;
+            var $h = $(window).height(); // 获取当前窗口的高度
+            var len = $('.pages').length; // 页面个数
             var $points = $('.points li');
             var $pages = $('.pages');
-            var currentpage = 0;
+            var currentpage = 0; // 当前页面的变量
             var timer = null;
-
-            $pages.eq(0).addClass('moving');
-            $pages.css({height:$h});
-            $(window).mousewheel(function(ev,dat){
-                clearTimeout(timer);
+            // 由于下面的结构中已经加了moving导致打开页面时，并没有移动的效果，所以要再加一次
+            $pages.eq(0).addClass('moving'); 
+            $pages.css({height:$h}); // css中只是设置了初始值，需要根据窗口大小，改变下页面的尺寸
+            $(window).mousewheel(function(ev,dat){ //滚动鼠标滚轮事件
+                // 由于滚动一下滚轮触发好多次这个事件，所以会出现滚动一下，跳动好几页的情况
+                // 这里就是先把滚动事件加到定时器中，并延迟触发，前面加上清楚定时器，一旦触发多次
+                // ，当第一次开始触发是，因为有延迟，所以先等待延迟，在这个延迟期间,第二次触发已经开始，
+                // 这个时候clearTimeout会清除上一次定时器，最后只有最后一个定时器会触发。这就是函数节流
+                clearTimeout(timer);  
                 timer = setTimeout(function(){
-                    if(dat==-1){
+                    // dat：向下是-1，向上是1
+                    // 如果向下，页面数加1，当到最后一页时，页面数一旦大于总页数，那么就使其等于最后一页的页数
+                    // 如果向上，页面减1，到达第一页是，页数是0，所以如果页数小于0，就是其等于0
+                    if(dat==-1){  
                         currentpage++
                         if(currentpage>len-1){
                             currentpage=len-1;
@@ -34,8 +41,11 @@
                             currentpage=0;
                         }
                     }
+                    // 页面上下移动相应窗口高度的距离，实现翻页
                     $pages.animate({top:-$h*currentpage},300);
+                    // 右侧的点也要相应的加上class
                     $points.eq(currentpage).addClass('active').siblings().removeClass('active');
+                    // 页面内容加上效果class
                     $pages.eq(currentpage).addClass('moving').siblings().removeClass('moving');
                 },200);
             });
