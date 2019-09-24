@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jsonp公开接口</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript"> // 使用ajax必须加上type，否则会有问题
+        // https://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word=c&huid=10YlK4A6QX%2BUyw22kUi5eId7RtxIbkwDvuvPAryBvcLAM%3D&llbq=A5%2CB5%2CC5%2CD5
+        $(function(){
+            $('#btn').click(function(){
+                var inp = $('#input1').val();
+                $.ajax({
+                    url: 'https://sug.so.360.cn/suggest?encodein=utf-8&encodeout=utf-8&format=json&fields=word',
+                    type: 'get',
+                    dataType: 'jsonp',
+                    data: {word: inp},
+                    jsonpCallback: 'suggest_so'
+                })
+                .done(function(dat){
+                    // alert(dat);
+                    $('#head').siblings().remove();
+                    for(var i=0;i<dat.result.length;i++){
+                        var $li = $('<tr id="data">'+ '<td>' + dat.result[i].rank+ '</td>' 
+                        + '<td>' + dat.result[i].word + '</td></tr>');
+                        $li.appendTo('.table');
+                    }
+                })
+                .fail(function(){
+                    console.log('error');
+                });
+            })
+        })
+    </script>
+    <style>
+        .body{
+            align-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        .table{
+            border-collapse:collapse;
+        }
+        .table th,td{
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="" id="input1" class="input">
+    <input type="button" value="搜索" id="btn" class="btn">
+    
+    <table class="table" id="table">
+        <tr id="head">
+            <th>排名值</th>
+            <th>关键字</th>
+        </tr>
+    </table>
+
+</body>
+</html>
